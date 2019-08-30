@@ -1,0 +1,106 @@
+#:kivy 1.11
+
+<Root>:
+    label_wid: my_custom_label
+
+    FloatLayout:
+
+        orientation: 'vertical'
+
+        canvas.before:
+            Color:
+                rgba: 255,255,255,255
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+    GridLayout:
+        
+        rows: 5
+        AnchorLayout:
+            anchor_x: 'center'
+            anchor_y: 'top'
+            Image:
+                id: my_custom_label
+                source: 'img/wallpaper_white.jpg'
+
+        AnchorLayout:
+
+            GridLayout:
+                rows: 3
+                size_hint: .6, .3
+                spacing: 25
+                Button:
+                    on_press: root.login_fb()
+                    StackLayout:
+                        orientation: 'lr-tb'
+                        pos: self.parent.pos
+                        size: self.parent.size
+                        Image:
+                            source: 'img/fb.png'
+                            size_hint_x: None
+                            width: 80
+                        Label:
+                            text: root.fb
+                            markup: True
+                            size_hint_x: None
+                            width: 100
+                            halign: 'center'
+
+                Button:
+                    on_press: root.login_gg()
+                    StackLayout:
+                        orientation: 'lr-tb'
+                        pos: self.parent.pos
+                        size: self.parent.size
+                        Image:
+                            source: 'img/gg.png'
+                            size_hint_x: None
+                            width: 80
+                        Label:
+                            text: root.gg
+                            size_hint_x: None
+                            width: 100
+                            halign: 'center'
+
+                Button:
+                    on_press: root.login_ig()
+                    StackLayout:
+                        orientation: 'lr-tb'
+                        pos: self.parent.pos
+                        size: self.parent.size
+                        Image:
+                            source: 'img/ig.png'
+                            size_hint_x: None
+                            width: 80
+                        Label:
+                            text: root.ig
+                            size_hint_x: None
+                            width: 100
+                            halign: 'center'
+
+        ActionBar:
+            ActionView:
+                ActionPrevious:
+                    use_separator: True
+                    app_icon: 'img/nav.png'
+                    with_previous: False
+                ActionPrevious:
+                    use_separator: False
+                    title: 'Profile'
+                    app_icon: 'img/user.png'
+                    with_previous: False
+                ActionPrevious:
+                    use_separator: True
+                    title: 'View Cart'
+                    app_icon: 'img/cart.png'
+                    with_previous: False
+                ActionPrevious:
+                    use_separator: True
+                    title: 'Contact'
+                    app_icon: 'img/contactus.png'
+                    with_previous: True
+
+
+
+
